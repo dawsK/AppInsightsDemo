@@ -36,6 +36,13 @@
         <div class="header-content">
             <div class="inner">
                 <div id="root"></div>
+                <div id="time"></div>
+                <script>
+                  (async function() {
+                    let { text } = await( await fetch(`/api/time`)).json();
+                    document.querySelector('#time').textContent = text.currentTime;
+                  }())
+                </script>
             </div>
         </div>
     </header>
